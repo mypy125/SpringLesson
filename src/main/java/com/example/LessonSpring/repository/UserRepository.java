@@ -20,6 +20,13 @@ public class UserRepository {
         list.add(new User(2L,"karen"));
         list.add(new User(3L,"sevak"));
         list.add(new User(4L,"gregory"));
+        list.add(new User(5L,"stepa"));
+        list.add(new User(6L,"artash"));
+        list.add(new User(7L,"kartesh"));
+        list.add(new User(8L,"veri"));
+        list.add(new User(9L,"mark"));
+        list.add(new User(10L,"maxim"));
+        list.add(new User(11L,"sasha"));
     }
 
     public List<User> getAllUsers(){
