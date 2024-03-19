@@ -2,9 +2,7 @@ package com.example.LessonSpring.service.impl;
 
 import com.example.LessonSpring.domain.task.Task;
 import com.example.LessonSpring.repository.TaskRepository;
-import com.example.LessonSpring.repository.UserRepository;
 import com.example.LessonSpring.service.TaskService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,16 +29,16 @@ public class TaskServiceImpl implements TaskService {
 
     @Override
     public Task update(Task task) {
-        return null;
+        return taskRepository.updateTask(task);
     }
 
     @Override
-    public Task create(Task task, Long id) {
-        return null;
+    public Task create(Task task) {
+        return taskRepository.createTask(task);
     }
 
     @Override
     public void delete(Long id) {
-
+        taskRepository.deleteTask(id);
     }
 }

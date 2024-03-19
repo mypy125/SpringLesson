@@ -2,30 +2,42 @@ package com.example.LessonSpring.controller;
 
 import com.example.LessonSpring.domain.user.User;
 import com.example.LessonSpring.repository.UserRepository;
+import com.example.LessonSpring.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/users")
 public class UserController {
-    private final UserRepository repository;
+    private final UserServiceImpl service;
 
     @Autowired
-    public UserController(UserRepository repository) {
-        this.repository = repository;
+    public UserController(UserServiceImpl service) {
+        this.service = service;
     }
 
     @GetMapping("/{id}")
     public User getUserById(@PathVariable Long id){
-        return repository.getUserById(id);
+        return service.getById(id);
     }
 
     @GetMapping("/{name}")
     public User getUserByName(@PathVariable String name){
-        return repository.getUserByName(name);
+        return service.getByUserName(name);
     }
 
+    @PostMapping("/users")
+    public User createUser(@RequestBody User user ){
+        return service.create(user);
+    }
+
+    @PutMapping("/users")
+    public User updateUser(@RequestBody User user){
+        return service.create(user);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteUser(@PathVariable Long id){
+        service.delete(id);
+    }
 }

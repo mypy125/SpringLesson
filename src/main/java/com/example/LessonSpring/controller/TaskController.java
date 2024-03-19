@@ -2,30 +2,38 @@ package com.example.LessonSpring.controller;
 
 import com.example.LessonSpring.domain.task.Task;
 import com.example.LessonSpring.repository.TaskRepository;
+import com.example.LessonSpring.service.impl.TaskServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/tasks")
 public class TaskController {
-    private final TaskRepository repository;
+    private final TaskServiceImpl service;
 
     @Autowired
-    public TaskController(TaskRepository repository) {
-        this.repository = repository;
+    public TaskController(TaskServiceImpl service) {
+        this.service = service;
     }
 
     @GetMapping("/{id}")
     public Task getUserById(@PathVariable Long id){
-        return repository.getTaskById(id);
+        return service.getById(id);
     }
 
-    @GetMapping("/{title}")
-    public Task getUserByName(@PathVariable String title){
-        return repository.getTaskByTitle(title);
+
+    @PostMapping("/tasks")
+    public Task createTask(@RequestBody Task task){
+       return service.create(task);
     }
 
+    @PutMapping("/task")
+    public Task updateTask(@RequestBody Task task){
+        return service.update(task);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteTask(@PathVariable Long id){
+        service.delete(id);
+    }
 }

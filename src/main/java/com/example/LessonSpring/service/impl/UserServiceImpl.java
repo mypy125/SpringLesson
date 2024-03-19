@@ -30,12 +30,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User create(User user) {
-        return null;
+        return userRepository.createUser(user);
     }
 
     @Override
     public User update(User user) {
-        return null;
+        return userRepository.updateUser(user);
     }
 
     @Override

@@ -13,7 +13,7 @@ import java.io.Serializable;
 public class Task implements Serializable {
     private Long id;
     private String title;
-//    private String description;
+    private String description;
 //    private Status status;
 //    private LocalDateTime expirationTime;
 //    private List<String> images;
