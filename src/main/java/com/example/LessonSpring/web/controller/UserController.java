@@ -1,4 +1,4 @@
-package com.example.LessonSpring.controller;
+package com.example.LessonSpring.web.controller;
 
 import com.example.LessonSpring.domain.user.User;
 import com.example.LessonSpring.repository.UserRepository;
