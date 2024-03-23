@@ -1,39 +1,44 @@
 package com.example.LessonSpring.web.controller;
 
-import com.example.LessonSpring.domain.task.Task;
-import com.example.LessonSpring.repository.TaskRepository;
+import com.example.LessonSpring.domain.entity.task.TaskEntity;
+import com.example.LessonSpring.service.TaskService;
 import com.example.LessonSpring.service.impl.TaskServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/tasks")
 public class TaskController {
-    private final TaskServiceImpl service;
+    private final TaskService taskService;
 
     @Autowired
-    public TaskController(TaskServiceImpl service) {
-        this.service = service;
+    public TaskController(TaskServiceImpl taskService) {
+        this.taskService = taskService;
     }
-
+    @GetMapping("/users")
+    public List<TaskEntity> getAllTask(){
+        return taskService.getAll();
+    }
     @GetMapping("/{id}")
-    public Task getUserById(@PathVariable Long id){
-        return service.getById(id);
+    public TaskEntity getTaskById(@PathVariable Long id){
+        return taskService.getById(id);
     }
 
 
     @PostMapping("/tasks")
-    public Task createTask(@RequestBody Task task){
-       return service.create(task);
+    public TaskEntity createTask(@RequestBody TaskEntity task){
+       return taskService.create(task);
     }
 
     @PutMapping("/task")
-    public Task updateTask(@RequestBody Task task){
-        return service.update(task);
+    public TaskEntity updateTask(@RequestBody TaskEntity task){
+        return taskService.update(task);
     }
 
     @DeleteMapping("/{id}")
     public void deleteTask(@PathVariable Long id){
-        service.delete(id);
+        taskService.delete(id);
     }
 }

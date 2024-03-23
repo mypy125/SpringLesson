@@ -1,13 +1,13 @@
 package com.example.LessonSpring.service;
 
-import com.example.LessonSpring.domain.task.Task;
+import com.example.LessonSpring.domain.entity.task.TaskEntity;
 
 import java.util.List;
 
 public interface TaskService {
-    Task getById(Long id);
-    List<Task> getAllByUserId(Long id);
-    Task update(Task task);
-    Task create(Task task);
+    List<TaskEntity> getAll();
+    TaskEntity getById(Long id);
+    TaskEntity create(TaskEntity task);
+    TaskEntity update(TaskEntity task);
     void delete(Long id);
 }

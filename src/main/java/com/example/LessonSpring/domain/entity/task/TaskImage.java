@@ -1,4 +1,4 @@
-package com.example.LessonSpring.domain.task;
+package com.example.LessonSpring.domain.entity.task;
 
 import org.springframework.web.multipart.MultipartFile;
 
