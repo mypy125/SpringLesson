@@ -21,8 +21,8 @@
         <property name="hibernate.hbm2ddl.auto">update</property>
 
         <!-- Mention annotated entity class -->
-        <mapping class="com.example.LessonSpring.LessonSpringApplication"/>
-
+        <mapping class="com.example.LessonSpring.domain.model.User"/>
+        <mapping class="com.example.LessonSpring.domain.model.Task"/>
 
         <!-- DB schema will be updated if needed -->
         <!-- <property name="hibernate.hbm2ddl.auto">update</property> -->
