@@ -1,10 +1,7 @@
 package com.example.LessonSpring.domain.entity.user;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
@@ -12,6 +9,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @Data
 @Entity
+@Table(schema = "users")
 public class UserEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
